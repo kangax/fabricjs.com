@@ -40,6 +40,11 @@ title: Custom Fabric build
     <p>Adds support for text rendering via `fabric.IText` or `fabric.Textbox` See: <a href="/test/misc/itext.html" >iText demo</a>. Depends on "Animation" and "Text"</p>
   </li>
   <li>
+    <input type="checkbox" id="textbox">
+    <label for="textbox">Textbox</label><br>
+    <p>Adds support for textbox rendering via `fabric.Textbox`. Depends on "IText"</p>
+  </li>
+  <li>
     <input type="checkbox" id="gestures">
     <label for="gestures">Gestures</label><br>
     <p>Adds support for multitouch gestures with help of <a href="https://github.com/mudcube/Event.js">Event.js</a>. Depends on "Interaction" module.</p>
@@ -396,7 +401,7 @@ title: Custom Fabric build
 
     document.getElementById('build').onclick = function() {
       build();
-    }
+    };
 
     document.getElementById('build-min').onclick = function() {
       build(true);
@@ -411,6 +416,11 @@ title: Custom Fabric build
       if (!this.checked) {
         document.getElementById('gestures').checked = false;
         document.getElementById('freedrawing').checked = false;
+      }
+    };
+    document.getElementById('textbox').onclick = function () {
+      if (this.checked) {
+        document.getElementById('itext').checked = true;
       }
     };
     document.getElementById('itext').onclick = function() {
